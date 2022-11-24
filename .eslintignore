@@ -4,3 +4,4 @@ node_modules
 jest.config.js
 test
 *.json
+src/SQLite*.ts

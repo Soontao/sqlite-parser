@@ -1,3 +1,5 @@
-export const a = 1;
+import SQLiteLexer from "./SQLiteLexer";
+import SQLiteParser from "./SQLiteParser";
+import SQLiteParserListener from "./SQLiteParserListener";
 
-export const b = "1";
+export { SQLiteParser, SQLiteParserListener, SQLiteLexer };

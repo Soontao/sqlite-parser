@@ -2,19 +2,21 @@
   "compilerOptions": {
     "charset": "UTF-8",
     "newLine": "lf",
-    "target": "ES2021",
-    "module": "CommonJS",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": false,
     "sourceMap": true,
     "outDir": "lib",
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "strict": true,
+    "strict": false,
     "lib": [
       "ES2021"
     ]

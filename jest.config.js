@@ -1,26 +1,27 @@
-
 /**
  * @type {import("@jest/types").Config.ProjectConfig}
  */
-module.exports = {
+export default {
   testTimeout: 10 * 1000,
-  transform: {
-    ".(ts|tsx)": "ts-jest"
+  extensionsToTreatAsEsm: [".ts"],
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1",
   },
-  collectCoverageFrom: [
-    "src/**/*.ts",
-    "!**/node_modules/**"
-  ],
-  coveragePathIgnorePatterns: [
-    "node_modules/",
-  ],
+  transform: {
+    // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
+    // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        useESM: true,
+      },
+    ],
+  },
+  collectCoverageFrom: ["src/**/*.ts", "!**/node_modules/**"],
+  coveragePathIgnorePatterns: ["node_modules/"],
   testEnvironment: "node",
   testRegex: "/test/.*\\.test\\.ts$",
-  moduleFileExtensions: [
-    "ts",
-    "js",
-    "json"
-  ],
+  moduleFileExtensions: ["ts", "js", "json"],
   coverageThreshold: {
     global: {
       branches: 80,
@@ -29,5 +30,5 @@ module.exports = {
       statements: 85,
     },
   },
-  reporters: ["default", ["jest-junit", { outputDirectory: "coverage" }]]
+  reporters: ["default", ["jest-junit", { outputDirectory: "coverage" }]],
 };
